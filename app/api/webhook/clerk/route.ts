@@ -72,7 +72,7 @@ export async function POST(req: Request) {
     if (newUser) {
       await clerkClient.users.updateUserMetadata(id, {
         publicMetadata: {
-          userId: newUser.id,
+          userId: newUser._id,
         },
       })
     }
@@ -80,7 +80,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: 'OK', user: newUser })
   }
   if (eventType === 'user.updated') {
-    const {id, image_url, first_name, last_name, username } = evt.data
+    const { id, image_url, first_name, last_name, username } = evt.data
 
     const user = {
       firstName: first_name,
