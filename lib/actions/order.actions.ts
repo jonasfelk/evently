@@ -11,10 +11,10 @@ import { redirect } from 'next/navigation'
 import { handleError } from '../utils'
 import { connectToDatabase } from '../database'
 
-import Event from '@/lib/database/modals/event.model'
+import Event from '@/lib/database/models/event.model'
 import { ObjectId } from 'mongodb'
-import User from '@/lib/database/modals/user.model'
-import Order from '@/lib/database/modals/order.model'
+import User from '@/lib/database/models/user.model'
+import Order from '@/lib/database/models/order.model'
 
 export const checkoutOrder = async (order: CheckoutOrderParams) => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
